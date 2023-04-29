@@ -53,6 +53,21 @@ app.get("/restaurants/:id", (req, res) => {
     .catch((error) => console.error(error));
 });
 
+app.get("/restaurants/:id/edit", (req, res) => {
+  const { id } = req.params;
+  Restaurant.findById(id)
+    .lean()
+    .then((restaurant) => res.render("edit", { restaurant }))
+    .catch((error) => console.log(error));
+});
+
+app.put("/restaurants/:id", (req, res) => {
+  const { id } = req.params;
+  Restaurant.findByIdAndUpdate(id, req.body)
+    .then(() => res.redirect(`/restaurants/${id}`))
+    .catch((err) => console.log(err));
+});
+
 app.listen(port, () => {
   console.log(`App is listening on localhost:${port}`);
 });
