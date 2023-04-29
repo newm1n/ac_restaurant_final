@@ -36,6 +36,16 @@ app.get("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+app.get("/restaurants/new", (req, res) => {
+  res.render("new");
+});
+
+app.post("/restaurants", (req, res) => {
+  Restaurant.create(req.body)
+    .then(() => res.redirect("/"))
+    .catch((error) => console.log(error));
+});
+
 app.listen(port, () => {
   console.log(`App is listening on localhost:${port}`);
 });
