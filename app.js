@@ -68,6 +68,13 @@ app.put("/restaurants/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+app.delete("/restaurants/:id", (req, res) => {
+  const { id } = req.params;
+  Restaurant.findByIdAndDelete(id)
+    .then(() => res.redirect("/"))
+    .catch((err) => console.log(err));
+});
+
 app.listen(port, () => {
   console.log(`App is listening on localhost:${port}`);
 });
