@@ -46,6 +46,13 @@ app.post("/restaurants", (req, res) => {
     .catch((error) => console.log(error));
 });
 
+app.get("/restaurants/:id", (req, res) => {
+  Restaurant.findOne({ _id: req.params.id })
+    .lean()
+    .then((restaurant) => res.render("show", { restaurant }))
+    .catch((error) => console.error(error));
+});
+
 app.listen(port, () => {
   console.log(`App is listening on localhost:${port}`);
 });
