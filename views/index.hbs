@@ -28,6 +28,13 @@
               <option>地區</option>
             </select>
           </div>
+
+          <div>
+            {{#if isAuthenticated}}
+              <a href="/restaurants/new" class="btn btn-primary mb-1">Create</a>
+            {{/if}}
+          </div>
+
         </div>
       </form>
     </div>
