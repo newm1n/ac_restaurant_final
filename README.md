@@ -2,7 +2,7 @@
 
 
 ## Screenshot
-https://github.com/newm1n/ac_restaurant_final/blob/main/public/images/%E6%88%AA%E5%9C%96%202023-04-30%20%E4%B8%8B%E5%8D%8810.39.57.png
+https://raw.githubusercontent.com/newm1n/ac_restaurant_final/main/public/images/%E6%88%AA%E5%9C%96%202023-04-30%20%E4%B8%8B%E5%8D%8810.39.57.png
 
 
 ## About
