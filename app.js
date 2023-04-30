@@ -19,6 +19,7 @@ app.use(
     secret: "ThisIsMySecret",
     resave: false,
     saveUninitialized: true,
+    useFindAndModify: false,
   })
 );
 

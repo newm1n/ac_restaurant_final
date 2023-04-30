@@ -4,8 +4,10 @@ const Restaurant = require("../../models/restaurant");
 
 // view all restaurants
 router.get("/", (req, res) => {
-  Restaurant.find() // find data from Restaurant model
+  const userId = req.user._id;
+  Restaurant.find({ userId }) // find data from Restaurant model
     .lean() // transform objects in Mongoose Model to JavaScript object
+    .sort({ _id: "asc" })
     .then((restaurantsData) => res.render("index", { restaurantsData }))
     .catch((error) => console.error(error));
 });
