@@ -40,7 +40,6 @@ module.exports = (app) => {
         profileFields: ["email", "displayName"],
       },
       (accessToken, refreshToken, profile, done) => {
-        // console.log(profile);
         const { name, email } = profile._json;
         User.findOne({ email }).then((user) => {
           if (user) return done(null, user);

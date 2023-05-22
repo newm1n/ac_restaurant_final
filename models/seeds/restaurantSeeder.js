@@ -20,6 +20,8 @@ const SEED_USER = [
 ];
 
 db.once("open", () => {
+  console.log("running restaurantSeeder script...");
+
   bcrypt
     .genSalt(10)
     .then((salt) => bcrypt.hash(SEED_USER[0].password, salt))

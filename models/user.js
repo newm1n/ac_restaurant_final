@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// email, password 為必填欄位，名字不是
 const userSchema = new Schema({
   name: {
     type: String,

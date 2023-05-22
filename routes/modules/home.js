@@ -14,14 +14,16 @@ router.get("/", (req, res) => {
 
 // search bar
 router.get("/search", (req, res) => {
+  const userId = req.user._id;
   if (!req.query.keywords) {
     res.redirect("/");
+    return;
   }
 
   const keywords = req.query.keywords;
   const keyword = req.query.keywords.trim().toLowerCase();
 
-  Restaurant.find({})
+  Restaurant.find({ userId })
     .lean()
     .then((restaurantsData) => {
       const filterRestaurantsData = restaurantsData.filter(
@@ -29,10 +31,7 @@ router.get("/search", (req, res) => {
           data.name.toLowerCase().includes(keyword) ||
           data.category.includes(keyword)
       );
-      res.render("index", {
-        restaurantsData: filterRestaurantsData,
-        keywords,
-      });
+      res.render("index", { restaurantsData: filterRestaurantsData, keywords });
     })
     .catch((err) => console.log(err));
 });
